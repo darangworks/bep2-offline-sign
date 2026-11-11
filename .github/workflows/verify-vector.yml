@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: verify-vector-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   verify:
     name: Verify official sample
