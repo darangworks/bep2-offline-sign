@@ -1,0 +1,8 @@
+node_modules/
+message*.json
+!examples/message.example.json
+*.key
+*.pem
+sig*.json
+signature*.json
+.env*
