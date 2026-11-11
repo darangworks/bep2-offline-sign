@@ -44,6 +44,14 @@ npm ls --depth=0        # expect @noble/curves@1.9.7  @noble/hashes@1.8.0  @scur
 npm run verify-vector   # expect noble: true / OpenSSL: true
 ```
 
+## Automated checks (GitHub Actions)
+
+GitHub Actions runs the regression check on every push and pull request (and can also be started manually). It installs the exact locked dependencies with lifecycle scripts disabled, runs `npm run verify-vector` to check the published sample signature independently with **noble and OpenSSL**, and reports the installed dependency versions.
+
+This is a reproducibility/regression check only—not an independent security audit, and not proof that the recovery service will accept a request. The workflow does not use or request your private key.
+
+Workflow: [`.github/workflows/verify-vector.yml`](.github/workflows/verify-vector.yml).
+
 ## Use
 
 1. Run the official tool, do **Step 1** (address -> list) and **Step 2** (token, amount, BSC address,
