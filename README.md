@@ -28,6 +28,14 @@ signs the **same bytes** offline and prints `signature` and `publicKey`, which y
 What this does **not** prove: that the server accepts your request. Only Step 3 shows that, and Step 3
 sends no transaction.
 
+## Why I built it and real-world validation
+
+I built this tool because I could not find an available tool for producing **the exact signature required by this recovery flow and independently verifying that signature** when the expected Trust Wallet browser extension was unavailable. This project provides an offline signing path and checks the result with two independent verification implementations.
+
+I also previously tested the recovery process successfully with a **real balance**, recovering assets from BNB Beacon Chain to BNB Smart Chain (BSC). The recovery service's status endpoint for that test is available here: [Check the recovery API response](https://mainnet-token-recover-api.bnbchain.org/api/recover/token/bnb136uztmqa2vtdtedtjpfv7hyszpdkd9xmaj7yjy?symbol=BNB).
+
+That practical result validates the recovery flow I tested; it is not an independent security audit of this signer, and the API response may change as the recovery status changes.
+
 ## Requirements
 
 * Node.js 24+ (tested on Windows PowerShell)
