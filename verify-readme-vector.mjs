@@ -13,4 +13,4 @@ const xy = secp256k1.ProjectivePoint.fromHex(pub).toRawBytes(false);
 const jwk = { kty: 'EC', crv: 'secp256k1', x: Buffer.from(xy.slice(1, 33)).toString('base64url'), y: Buffer.from(xy.slice(33)).toString('base64url') };
 console.log('noble  :', secp256k1.verify(sig, sha256(utf8ToBytes(msg)), pub));
 console.log('OpenSSL:', verify('sha256', Buffer.from(msg), { key: jwk, format: 'jwk', dsaEncoding: 'ieee-p1363' }, Buffer.from(sig)));
-console.log('address:', bech32.encode('bnb', bech32.toWords(ripemd160(sha256(pub))));
+console.log('address:', bech32.encode('bnb', bech32.toWords(ripemd160(sha256(pub)))));
